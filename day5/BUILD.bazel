@@ -1,0 +1,16 @@
+cc_binary(
+  name = "day5",
+  srcs = ["day5.cc"],
+  data = [":input"],
+  deps = [
+    "//utils",
+    "@abseil-cpp//absl/strings",
+    "@abseil-cpp//absl/container:flat_hash_map",
+    "@abseil-cpp//absl/container:flat_hash_set",
+  ],
+)
+
+filegroup(
+    name = "input",
+    srcs = ["input.txt"],
+)

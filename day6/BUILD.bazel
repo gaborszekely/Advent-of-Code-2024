@@ -1,0 +1,13 @@
+cc_binary(
+  name = "day6",
+  srcs = ["day6.cc"],
+  data = [":input"],
+  deps = [
+    "//utils"
+  ],
+)
+
+filegroup(
+    name = "input",
+    srcs = ["input.txt"],
+)

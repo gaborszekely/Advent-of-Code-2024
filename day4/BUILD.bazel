@@ -1,0 +1,14 @@
+cc_binary(
+  name = "day4",
+  srcs = ["day4.cc"],
+  data = [":input"],
+  deps = [
+    "@abseil-cpp//absl/strings",
+    "//utils"
+  ],
+)
+
+filegroup(
+    name = "input",
+    srcs = ["input.txt"],
+)
