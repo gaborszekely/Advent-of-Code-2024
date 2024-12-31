@@ -3,6 +3,8 @@ cc_binary(
   srcs = ["day7.cc"],
   data = [":input"],
   deps = [
+    "@abseil-cpp//absl/strings",
+    "@boost.multiprecision",
     "//utils"
   ],
 )

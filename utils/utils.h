@@ -21,6 +21,10 @@ std::vector<std::vector<std::string>> ReadFileAsMatrix(
 
 bool InBounds(Matrix& matrix, int i, int j);
 
+std::vector<int> ConvertToInts(std::vector<std::string> input);
+
+std::vector<long> ConvertToLongs(std::vector<std::string> input);
+
 }  // namespace utils
 
 }  // namespace aoc

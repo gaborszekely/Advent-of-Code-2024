@@ -3,3 +3,5 @@
 # Choose the most recent version available at
 # https://registry.bazel.build/modules/abseil-cpp.
 bazel_dep(name = "abseil-cpp", version = "20240722.0.bcr.1")
+
+bazel_dep(name = "boost.multiprecision", version = "1.83.0.bzl.1") # replace 'X' with latest version

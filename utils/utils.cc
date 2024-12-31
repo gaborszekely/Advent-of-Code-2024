@@ -64,6 +64,26 @@ bool InBounds(Matrix& matrix, int i, int j) {
     return i >= 0 && i < matrix.size() && j >= 0 && j < matrix[0].size();
 }
 
+std::vector<int> ConvertToInts(std::vector<std::string> input) {
+    std::vector<int> nums;
+
+    for (std::size_t i = 0; i < input.size(); i++) {
+        nums.push_back(std::stoi(input[i]));
+    }
+
+    return nums;
+}
+
+std::vector<long> ConvertToLongs(std::vector<std::string> input) {
+    std::vector<long> nums;
+
+    for (std::size_t i = 0; i < input.size(); i++) {
+        nums.push_back(std::stol(input[i]));
+    }
+
+    return nums;
+}
+
 }  // namespace utils
 
 }  // namespace aoc
