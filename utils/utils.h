@@ -8,6 +8,7 @@ namespace aoc {
 namespace utils {
 
 using Matrix = std::vector<std::vector<std::string>>;
+using Coord = std::pair<int, int>;
 
 void ReadFile(
     std::string path, std::string& file_contents);
