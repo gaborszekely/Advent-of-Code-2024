@@ -1,6 +1,7 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
+#include <numeric>
 #include <string>
 
 #include "absl/strings/str_join.h"

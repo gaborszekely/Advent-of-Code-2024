@@ -3,7 +3,8 @@ cc_binary(
   srcs = ["day9.cc"],
   data = [":input"],
   deps = [
-    "//utils"
+    "//utils",
+    "@abseil-cpp//absl/strings",
   ],
 )
 

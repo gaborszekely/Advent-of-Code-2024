@@ -1,13 +1,61 @@
 #include <iostream>
+#include <numeric>
+
+#include "absl/strings/str_split.h"
+#include "utils/utils.h"
 
 const std::string kInputPath = "day9/input.txt";
+using namespace aoc::utils;
 
-int PartOne() {
-    return 0;
+long long PartOne() {
+    std::string file_contents;
+    ReadFile(kInputPath, file_contents);
+    auto disk_map = ConvertToInts(absl::StrSplit(file_contents, ""));
+    int disk_map_size = disk_map.size();
+
+    int slots = 0;
+    for (int i = 0; i < disk_map_size; i += 2) {
+        slots += disk_map[i];
+    }
+
+    long long checksum = 0;
+    int disk_map_index = 0;
+    int slot_index = 0;
+    int move_index = disk_map_size - 1;
+
+    // calculate checksum
+    while (slot_index < slots) {
+        if (disk_map_index % 2 == 0) {
+            int id = disk_map_index / 2;
+            for (int i = 0; i < disk_map[disk_map_index]; ++i) {
+                checksum += (long long)slot_index * (long long)id;
+                slot_index++;
+            }
+        } else {
+            for (int i = 0; i < disk_map[disk_map_index]; ++i) {
+                if (disk_map[move_index] == 0) {
+                    move_index -= 2;
+                }
+                int move_index_id = move_index / 2;
+                checksum += (long long)move_index_id * (long long)slot_index;
+                disk_map[move_index]--;
+                slot_index++;
+            }
+        }
+        disk_map_index++;
+    }
+
+    return checksum;
 }
 
-int PartTwo() {
-    return 0;
+long long PartTwo() {
+    std::string file_contents;
+    ReadFile(kInputPath, file_contents);
+    auto disk_map = ConvertToInts(absl::StrSplit(file_contents, ""));
+    int disk_map_size = disk_map.size();
+
+    long long checksum = 0;
+    return checksum;
 }
 
 int main() {
