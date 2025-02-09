@@ -5,7 +5,7 @@
 #include "absl/strings/str_split.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day7/input.txt";
+constexpr char kInputPath[] = "day7/input.txt";
 
 using namespace aoc::utils;
 using namespace boost::multiprecision;

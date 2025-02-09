@@ -4,7 +4,7 @@
 #include "absl/container/flat_hash_set.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day8/input.txt";
+constexpr char kInputPath[] = "day8/input.txt";
 
 using namespace aoc::utils;
 
@@ -17,9 +17,9 @@ bool IsAntenna(const std::string& val) {
     return val != ".";
 }
 
-void PopulateAntennaCoordsMap(Matrix& matrix, absl::flat_hash_map<std::string, std::vector<Coord>>& map) {
-    std::size_t r = matrix.size();
-    std::size_t c = matrix[0].size();
+void PopulateAntennaCoordsMap(const Matrix<std::string>& matrix, absl::flat_hash_map<std::string, std::vector<Coord>>& map) {
+    const std::size_t r = matrix.size();
+    const std::size_t c = matrix[0].size();
 
     for (int i = 0; i < r; ++i) {
         for (int j = 0; j < c; ++j) {
@@ -31,14 +31,14 @@ void PopulateAntennaCoordsMap(Matrix& matrix, absl::flat_hash_map<std::string, s
 }
 
 int PartOne() {
-    auto matrix = ReadFileAsMatrix(kInputPath);
+    const auto matrix = ReadFileAsMatrix(kInputPath);
     absl::flat_hash_map<std::string, std::vector<Coord>> map;
     PopulateAntennaCoordsMap(matrix, map);
 
     absl::flat_hash_set<Coord> seen;
 
     for (const auto& [key, coords] : map) {
-        int size = coords.size();
+        const int size = coords.size();
         for (int i = 0; i < size - 1; ++i) {
             for (int j = i + 1; j < size; ++j) {
                 const auto& [firstX, firstY] = coords[i];
@@ -63,14 +63,14 @@ int PartOne() {
 }
 
 int PartTwo() {
-    auto matrix = ReadFileAsMatrix(kInputPath);
+    const auto matrix = ReadFileAsMatrix(kInputPath);
     absl::flat_hash_map<std::string, std::vector<Coord>> map;
     PopulateAntennaCoordsMap(matrix, map);
 
     absl::flat_hash_set<Coord> seen;
 
     for (const auto& [key, coords] : map) {
-        int size = coords.size();
+        const int size = coords.size();
         for (int i = 0; i < size - 1; ++i) {
             for (int j = i + 1; j < size; ++j) {
                 const auto& [firstX, firstY] = coords[i];

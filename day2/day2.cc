@@ -10,7 +10,7 @@
 #include "absl/strings/string_view.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day2/input.txt";
+constexpr char kInputPath[] = "day2/input.txt";
 
 bool CountSafeReports(int& result, std::function<bool(std::vector<int>&)> check_report_safety) {
     int i = 0;

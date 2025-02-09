@@ -8,7 +8,7 @@
 #include "utils/utils.h"
 
 using namespace aoc::utils;
-const std::string kInputPath = "day5/input.txt";
+constexpr char kInputPath[] = "day5/input.txt";
 
 std::vector<std::vector<int>> GetOutOfOrderRows() {
 }

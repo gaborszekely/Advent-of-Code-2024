@@ -4,14 +4,15 @@
 #include "absl/strings/str_split.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day9/input.txt";
+constexpr char kInputPath[] = "day9/input.txt";
+
 using namespace aoc::utils;
 
 long long PartOne() {
     std::string file_contents;
     ReadFile(kInputPath, file_contents);
     auto disk_map = ConvertToInts(absl::StrSplit(file_contents, ""));
-    int disk_map_size = disk_map.size();
+    const int disk_map_size = disk_map.size();
 
     int slots = 0;
     for (int i = 0; i < disk_map_size; i += 2) {
@@ -52,7 +53,7 @@ long long PartTwo() {
     std::string file_contents;
     ReadFile(kInputPath, file_contents);
     auto disk_map = ConvertToInts(absl::StrSplit(file_contents, ""));
-    int disk_map_size = disk_map.size();
+    const int disk_map_size = disk_map.size();
 
     long long checksum = 0;
     return checksum;

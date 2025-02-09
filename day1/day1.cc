@@ -9,7 +9,7 @@
 #include "absl/strings/string_view.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day1/input.txt";
+constexpr char kInputPath[] = "day1/input.txt";
 
 int PartOne() {
     std::vector<int> list_one;

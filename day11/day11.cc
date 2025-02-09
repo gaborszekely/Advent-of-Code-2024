@@ -1,6 +1,6 @@
 #include <iostream>
 
-const std::string kInputPath = "day10/input.txt";
+constexpr char kInputPath[] = "day11/input.txt";
 
 int PartOne() {
     return 0;

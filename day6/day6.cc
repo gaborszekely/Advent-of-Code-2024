@@ -3,11 +3,11 @@
 #include "absl/container/flat_hash_map.h"
 #include "utils/utils.h"
 
-const std::string kInputPath = "day6/input.txt";
+constexpr char kInputPath[] = "day6/input.txt";
 
 using namespace aoc::utils;
 
-std::pair<int, int> GetStartingCoords(Matrix matrix) {
+std::pair<int, int> GetStartingCoords(Matrix<std::string>& matrix) {
     std::size_t r = matrix.size();
     std::size_t c = matrix[0].size();
 
@@ -21,7 +21,7 @@ std::pair<int, int> GetStartingCoords(Matrix matrix) {
     throw new std::runtime_error("Could not find starting coords");
 }
 
-std::pair<int, int> GetNextCoords(const Matrix& matrix, const std::pair<int, int>& starting_coords, int direction) {
+std::pair<int, int> GetNextCoords(const Matrix<std::string>& matrix, const std::pair<int, int>& starting_coords, int direction) {
     // up
     if (direction == 0) {
         return {starting_coords.first - 1, starting_coords.second};
@@ -80,7 +80,7 @@ int PartOne() {
 // std::upper_bound is used to find first element that is greater than the given value.
 
 std::optional<std::pair<int, int>> GetNextBarrierCoords(
-    const Matrix& matrix,
+    const Matrix<std::string>& matrix,
     absl::flat_hash_map<int, std::vector<int>>& row_map,
     absl::flat_hash_map<int, std::vector<int>>& col_map,
     const std::pair<int, int>& starting_coords,

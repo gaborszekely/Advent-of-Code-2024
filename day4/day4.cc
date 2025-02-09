@@ -5,10 +5,10 @@
 
 using namespace aoc::utils;
 
-const std::string kInputPath = "day4/input.txt";
+constexpr char kInputPath[] = "day4/input.txt";
 
 int CheckXmas(
-    Matrix& matrix,
+    const Matrix<std::string>& matrix,
     int r,
     int c,
     absl::string_view marker,

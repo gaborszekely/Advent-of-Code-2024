@@ -4,7 +4,7 @@
 
 #include "utils/utils.h"
 
-const std::string kInputPath = "day3/input.txt";
+constexpr char kInputPath[] = "day3/input.txt";
 
 int GetMultiplicationResult(std::string expression) {
     std::regex pattern("mul\\((\\d+),(\\d+)\\)");
