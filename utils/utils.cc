@@ -1,5 +1,6 @@
 #include <cmath>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -14,7 +15,7 @@ using Matrix = std::vector<std::vector<std::string>>;
 using Coord = std::pair<int, int>;
 
 void ReadFile(
-    std::string path, std::string& file_contents) {
+    const std::string path, std::string& file_contents) {
     std::ifstream file(path);
     std::vector<std::string> lines;
 
@@ -51,22 +52,7 @@ void ReadFileByLine(
     }
 }
 
-std::vector<std::vector<std::string>> ReadFileAsMatrix(
-    const std::string path) {
-    std::vector<std::vector<std::string>> matrix;
-
-    aoc::utils::ReadFileByLine(path, [&](std::string line) {
-        matrix.push_back(absl::StrSplit(line, ""));
-    });
-
-    return matrix;
-}
-
-bool InBounds(Matrix& matrix, int i, int j) {
-    return i >= 0 && i < matrix.size() && j >= 0 && j < matrix[0].size();
-}
-
-std::vector<int> ConvertToInts(std::vector<std::string> input) {
+std::vector<int> ConvertToInts(const std::vector<std::string> input) {
     std::vector<int> nums;
 
     for (std::size_t i = 0; i < input.size(); i++) {
@@ -76,7 +62,7 @@ std::vector<int> ConvertToInts(std::vector<std::string> input) {
     return nums;
 }
 
-std::vector<long> ConvertToLongs(std::vector<std::string> input) {
+std::vector<long> ConvertToLongs(const std::vector<std::string> input) {
     std::vector<long> nums;
 
     for (std::size_t i = 0; i < input.size(); i++) {
@@ -84,6 +70,15 @@ std::vector<long> ConvertToLongs(std::vector<std::string> input) {
     }
 
     return nums;
+}
+
+const std::array<const std::array<int, 2>, 4>* GetCardinalNeighborDeltas() {
+    static const std::array<const std::array<int, 2>, 4> deltas = {{{0, 1},
+                                                                    {1, 0},
+                                                                    {0, -1},
+                                                                    {-1, 0}}};
+
+    return &deltas;
 }
 
 }  // namespace utils
